@@ -93,7 +93,11 @@ const addBook=(req,res)=>{
     const {bid,title,description,image_link,category,bstate,uid} = req.body ;
     
     pool.query(queries.addBook, [title,description,image_link,category,bstate,uid1], (error,results)=>{
-        if(error) throw error
+        if(error){
+            res.status(404).send(error);
+             throw error
+             
+        }
         res.status(201).send("Book Added Successfully"); 
     });
 };
