@@ -13,7 +13,7 @@ const getAllClients=(req,res)=>{
 
 const getMyRequest=(req,res)=>{
 
-    const uid=parseInt(req.params.uid);
+    const uid=req.params.uid;
     pool.query(queries.getMyRequest,[uid],(error,results)=>{
         if(error) throw error;
         res.status(200).json(results.rows)
