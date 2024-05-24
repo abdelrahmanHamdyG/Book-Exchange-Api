@@ -43,8 +43,9 @@ const postMyRequest= (req , res) =>{
 
                 if(error){
                     res.status(410).send(error)
-                }
                     throw error;
+                }
+                    
             })
         });
         
