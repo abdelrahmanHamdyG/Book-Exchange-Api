@@ -14,6 +14,10 @@ router.post("/requests/addRequest",controller.postMyRequest)
 //
 // zeyad
 
+router.get("/requestMyBooks/:rid&:uid",controller.getRequestMybook)
+router.get("/requestOtherBooks/:rid&:uid",controller.getRequestOtherbook)
+
+
 // 
 //sheeka
 router.delete("/mybooks/:bid",controller.deleteBook);
