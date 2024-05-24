@@ -193,6 +193,16 @@ const makeThemClicked=(req,res)=>{
 
 
 }
+const addUser=(req,res)=>{
+
+    const {uid,fname,lname,email,pass,governorate,phone_num,detailed_address} = req.body ;
+
+    pool.query(queries.addUser, [uid,fname,lname,email,pass,governorate,phone_num,detailed_address], (error,results)=>{
+        if(error) throw error
+        res.status(201).send("Client Added Successfully"); 
+    });
+};
+
 
 
 
@@ -212,6 +222,7 @@ module.exports={
     getBooksOfFav,
     getBooksBySearch,
     makeThemClicked,
+    addUser
     
 
 }

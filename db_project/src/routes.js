@@ -31,5 +31,7 @@ router.get("/search/:uid&:Kword", controller.getBooksBySearch);
 router.get("/books/:uid&:cats",controller.getBooksByFilter)
 router.put("/clicked/:uid",controller.makeThemClicked);
 
+router.post("/addUser",controller.addUser);
+
 
 module.exports=router;
