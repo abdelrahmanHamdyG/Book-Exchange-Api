@@ -23,10 +23,13 @@ const getMyRequest=(req,res)=>{
 const postMyRequest= (req , res) =>{
     
     const {rid,uid1,uid2,myBooks,hisBooks,state,clicked,date}=req.body;
-
+    console.log("I am in the request")
     pool.query(queries.postMyRequest,[uid1,uid2,date],(error,results)=>{
-        if(error)
+        if(error){
+            console.log(error)
+            res.status(409).send(error)
             throw error;
+        }
         
         
         const requestId = results.rows[0].rid;
@@ -36,7 +39,9 @@ const postMyRequest= (req , res) =>{
             
             pool.query(queries.insertBookRequestQuery,[requestId,element],(error,results)=>{
 
-                if(error)
+                if(error){
+                    res.status(410).send(error)
+                }
                     throw error;
             })
         });
