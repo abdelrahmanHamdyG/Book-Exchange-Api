@@ -276,7 +276,7 @@ const getRequestMybook=(req,res)=>{
 const getRequestOtherbook=(req,res)=>{
     const rid = parseInt(req.params.rid);
     const uid = req.params.uid;
-    pool.query(queries.othersideBookRequest, [rid,uid], (error, results) => {
+    pool.query(queries.getRequestOtherbook, [rid,uid], (error, results) => {
         if(error) throw error;
         res.status(200).json(results.rows);
     });
