@@ -24,7 +24,7 @@ const getMyRequest=(req,res)=>{
 
 const getARequest=(req,res)=>{
 
-    const bid=parseInt(req.params.bid)
+    const rid=parseInt(req.params.bid)
 
     pool.query(queries.getARequest,[bid],(error,results)=>{
         if(error)
@@ -100,6 +100,37 @@ const getBooksByFilter=(req,res)=>{
     
     
 }
+const getBooksDecision=(req,res)=>{
+    const cats=req.params.cats;
+    
+    const catsArr=cats.split('*')
+    let s=queries.getBooksDecision
+    for(let i=0;i<catsArr.length;i++){
+        
+        s+=(' bid= ')
+        s+=parseInt(catsArr[i]);
+        s+=' '
+        if(i!=catsArr.length-1)
+            s+=' or ';
+        console.log(s)
+    }
+    
+    s+=';';
+    console.log(s);
+
+    pool.query(s,[uid],(error,result)=>{
+
+        if(error)
+            throw error;
+
+
+        res.send(result.rows)
+
+    })
+    
+    
+}
+
 
 
 const deleteBook=(req,res)=>{
@@ -253,4 +284,5 @@ module.exports={
     makeThemClicked,
     addUser,
     getARequest,
+    getBooksDecision
 }

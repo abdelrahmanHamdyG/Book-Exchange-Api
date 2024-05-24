@@ -20,7 +20,7 @@ const addFav="INSERT INTO favourites (uid1, uid2) VALUES ($1, $2)";
 const addUser=`insert into client (uid,fname,lname,email,pass,governorate,phone_num,detailed_address) 
 values ($1,$2,$3,$4,$5,$6,$7,$8)`;
 
-const getARequest=`Select * FROM request where bid=$1`
+const getARequest=`Select * FROM request where rid=$1`
 
 
 // ahmed sayed
@@ -36,6 +36,7 @@ const deleteBooksAfterAcceptRequest=`UPDATE  book set bstate= 'deleted'  where b
 
 // zeyad ayman
 const getBooks=`Select * from book where book.uid!=$1 and book.bstate !='deleted' and ( `;
+const getBooksDecision=`Select * from book where `;
 const getAllBooksU=`SELECT * FROM book WHERE uid != $1 and book.bstate!='deleted' `;
 const getBooksOfFav="SELECT * FROM favourites LEFT JOIN book on (favourites.uid2 = book.uid) WHERE uid1=$1 AND uid2=uid and book.bstate!='deleted' ";
 const getBooksBySearch="SELECT * FROM book WHERE title LIKE $2 AND uid != $1 and book.bstate!='deleted' ";
@@ -64,5 +65,6 @@ module.exports={
     makeThemClicked,
     addUser,
     getARequest,
+    getBooksDecision
     
 }
