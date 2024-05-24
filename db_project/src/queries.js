@@ -52,7 +52,7 @@ const othersideBookRequest=`SELECT b.*
 FROM book b
 JOIN book_request br ON b.bid = br.bid
 JOIN request r ON br.rid = r.rid
-WHERE r.rid <> $1 and b.uid = $2 ` ;
+WHERE r.rid=$1 and b.uid <> $2 ` ;
 
 
 module.exports={
