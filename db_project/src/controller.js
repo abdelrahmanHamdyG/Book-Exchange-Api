@@ -89,10 +89,10 @@ const deleteBook=(req,res)=>{
 };
 
 const addBook=(req,res)=>{
-    const uid = parseInt(req.params.uid);
-    const {title,description,image_link,category,bstate} = req.body ;
+    const uid1 = parseInt(req.params.uid);
+    const {title,description,image_link,category,bstate,uid} = req.body ;
     
-    pool.query(queries.addBook, [title,description,image_link,category,bstate,uid], (error,results)=>{
+    pool.query(queries.addBook, [title,description,image_link,category,bstate,uid1], (error,results)=>{
         if(error) throw error
         res.status(201).send("Book Added Successfully"); 
     });
