@@ -24,9 +24,9 @@ const getMyRequest=(req,res)=>{
 
 const getARequest=(req,res)=>{
 
-    const rid=parseInt(req.params.bid)
+    const rid=parseInt(req.params.rid)
 
-    pool.query(queries.getARequest,[bid],(error,results)=>{
+    pool.query(queries.getARequest,[rid],(error,results)=>{
         if(error)
             throw error;
 
