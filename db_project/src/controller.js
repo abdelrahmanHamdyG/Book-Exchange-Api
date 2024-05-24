@@ -22,7 +22,7 @@ const getMyRequest=(req,res)=>{
 
 const postMyRequest= (req , res) =>{
     
-    const {uid1,uid2,myBooks,hisBooks,state,date}=req.body;
+    const {rid,uid1,uid2,myBooks,hisBooks,state,clicked,date}=req.body;
 
     pool.query(queries.postMyRequest,[uid1,uid2,date],(error,results)=>{
         if(error)
