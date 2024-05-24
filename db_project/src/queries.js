@@ -1,3 +1,5 @@
+const { getRequestOtherbook } = require("./controller");
+
 const getAllClients="SELECT * FROM client";
 const getMyRequest="Select * FROM request where uid1=$1 or uid2=$1";
 const postMyRequest=`INSERT INTO request (uid1, uid2, rstate, rdate, clicked) VALUES ($1, $2, 'pending', $3, false)         RETURNING rid;`
@@ -79,6 +81,7 @@ module.exports={
     getARequest,
     getBooksDecision,
     mybookRequest,
-    othersideBookRequest
+    othersideBookRequest,
+    
     
 }
