@@ -107,7 +107,7 @@ const updateBook=(req,res)=>{
 
     const { bid,title,description,image_link,category,bstate,uid} = req.body ;
     
-    pool.query(queries.updateBook, [title,description,image_link,category,bstate,uid,bid], (error,results)=>{
+    pool.query(queries.updateBook, [title,description,image_link,category,bstate,bid], (error,results)=>{
         if(error) throw error
         res.status(201).send("Book Updated Successfully");  
         
