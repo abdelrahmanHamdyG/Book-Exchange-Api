@@ -284,5 +284,5 @@ module.exports={
     makeThemClicked,
     addUser,
     getARequest,
-    getBooksDecision
+    getBooksDecision,
 }

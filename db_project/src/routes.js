@@ -9,7 +9,7 @@ const router=Router();
 router.get("/clients",controller.getAllClients)
 router.get("/requests/:uid",controller.getMyRequest)
 router.get("/oneRequest/:rid",controller.getARequest)
-router.get("/getBooksDecision/:cats",controller.getBooksDesicion)
+router.get("/getBooksDecision/:cats",controller.getBooksDecision)
 router.post("/requests/addRequest",controller.postMyRequest)
 //
 // zeyad
