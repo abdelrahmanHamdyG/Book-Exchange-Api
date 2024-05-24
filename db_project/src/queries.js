@@ -47,7 +47,7 @@ const mybookRequest=`SELECT b.*
 FROM book b
 JOIN book_request br ON b.bid = br.bid
 JOIN request r ON br.rid = r.rid
-WHERE b.uid = $2 AND r.rid = $1` ;
+WHERE r.rid = $1 and b.uid = $2  ` ;
 const othersideBookRequest=`select bid from book_request where rid=$1 and bid not in (select bid from book where uid=$2)`
 
 
