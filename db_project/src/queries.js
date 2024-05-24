@@ -20,6 +20,8 @@ const addFav="INSERT INTO favourites (uid1, uid2) VALUES ($1, $2)";
 const addUser=`insert into client (uid,fname,lname,email,pass,governorate,phone_num,detailed_address) 
 values ($1,$2,$3,$4,$5,$6,$7,$8)`;
 
+const getARequest=`Select * FROM request where bid=$1`
+
 
 // ahmed sayed
 
@@ -60,6 +62,7 @@ module.exports={
     getBooksOfFav,
     getBooksBySearch,
     makeThemClicked,
-    addUser
+    addUser,
+    getARequest,
     
 }

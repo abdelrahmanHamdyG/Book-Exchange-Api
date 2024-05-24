@@ -8,6 +8,7 @@ const router=Router();
 // ghania
 router.get("/clients",controller.getAllClients)
 router.get("/requests/:uid",controller.getMyRequest)
+router.get("/oneRequest/:bid",controller.getARequest)
 router.post("/requests/addRequest",controller.postMyRequest)
 //
 // zeyad

@@ -21,6 +21,22 @@ const getMyRequest=(req,res)=>{
     
 };
 
+
+const getARequest=(req,res)=>{
+
+    const bid=parseInt(req.params.bid)
+
+    pool.query(queries.getARequest,[bid],(error,results)=>{
+        if(error)
+            throw error;
+
+        res.status(200).json(results.rows);
+
+    })
+
+
+}
+
 const postMyRequest= (req , res) =>{
     
     const {rid,uid1,uid2,myBooks,hisBooks,state,clicked,date}=req.body;
@@ -236,4 +252,5 @@ module.exports={
     getBooksBySearch,
     makeThemClicked,
     addUser,
+    getARequest,
 }
