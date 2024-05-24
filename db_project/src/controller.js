@@ -89,7 +89,7 @@ const deleteBook=(req,res)=>{
 };
 
 const addBook=(req,res)=>{
-    const uid1 = parseInt(req.params.uid);
+    const uid1 = (req.params.uid);
     const {bid,title,description,image_link,category,bstate,uid} = req.body ;
     
     pool.query(queries.addBook, [title,description,image_link,category,bstate,uid1], (error,results)=>{
