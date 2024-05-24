@@ -1,5 +1,6 @@
 const pool=require("../db");
-const queries=require("./queries")
+const queries=require("./queries");
+const { merge } = require("./routes");
 
 
 const getAllClients=(req,res)=>{
@@ -34,7 +35,8 @@ const postMyRequest= (req , res) =>{
         
         const requestId = results.rows[0].rid;
         const mergedArr=myBooks.concat(hisBooks);
-
+        console.log(mergedArr)
+        
         mergedArr.forEach(element => {
             
             pool.query(queries.insertBookRequestQuery,[requestId,element],(error,results)=>{
