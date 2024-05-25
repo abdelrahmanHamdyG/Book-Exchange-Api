@@ -82,6 +82,7 @@ module.exports={
     getBooksDecision,
     mybookRequest,
     othersideBookRequest,
+    getAClient
     
     
 }

@@ -1,6 +1,6 @@
 const pool=require("../db");
 const queries=require("./queries");
-const { merge } = require("./routes");
+const { merge, param } = require("./routes");
 
 
 const getAllClients=(req,res)=>{
@@ -191,6 +191,19 @@ const getMyBooks=(req,res)=>{
 };
 
 
+const getAClient=(req,res)=>{
+    console.log("in the requeeeeeest")
+    const uid=req.params.uid
+
+    pool.query(queries.getAClient,[uid],(error,result)=>{
+        if(error)
+            throw error;
+
+    })
+
+
+}
+
 const acceptRequest=(req,res)=>{
     const rid=parseInt(req.params.rid);
     pool.query (queries.updateAcceptAfterAcceptRequest,[rid],(error,result)=>{
@@ -303,5 +316,6 @@ module.exports={
     getARequest,
     getBooksDecision,
     getRequestMybook,
-    getRequestOtherbook,
+    getRequestOtherbook,    
+    getAClient
 }
