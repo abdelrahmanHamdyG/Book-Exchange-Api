@@ -198,10 +198,10 @@ const getAClient=(req,res)=>{
     pool.query(queries.getAClient,[uid],(error,result)=>{
         if(error)
             throw error;
-
+        res.status(200).json(results.rows);
     })
 
-
+    
 }
 
 const acceptRequest=(req,res)=>{
