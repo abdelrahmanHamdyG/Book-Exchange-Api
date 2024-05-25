@@ -303,5 +303,5 @@ module.exports={
     getARequest,
     getBooksDecision,
     getRequestMybook,
-    getRequestOtherbook
+    getRequestOtherbook,
 }

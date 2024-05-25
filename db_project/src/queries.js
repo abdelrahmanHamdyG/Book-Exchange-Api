@@ -35,7 +35,7 @@ const deleteBooksAfterAcceptRequest=`UPDATE  book set bstate= 'deleted'  where b
 
 
 
-
+const getAClient=`SELECT * FROM client WHERE uid=$1 `
 // zeyad ayman
 const getBooks=`Select * from book where book.uid!=$1 and book.bstate !='deleted' and ( `;
 const getBooksDecision=`Select * from book where `;

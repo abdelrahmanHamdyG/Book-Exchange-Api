@@ -7,6 +7,7 @@ const router=Router();
 
 // ghania
 router.get("/clients",controller.getAllClients)
+router.get("/clients/{uid}",controller.getAClient)
 router.get("/requests/:uid",controller.getMyRequest)
 router.get("/oneRequest/:rid",controller.getARequest)
 router.get("/getBooksDecision/:cats",controller.getBooksDecision)
