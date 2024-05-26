@@ -33,7 +33,7 @@ const updateDeclinedAfterAcceptRequest=
 `Update request set rstate = 'refused' where rid in (select rid from book_request where bid in (select bid from book_request where rid= $1)) and rstate='pending' `
 const deleteBooksAfterAcceptRequest=`UPDATE  book set bstate= 'deleted'  where book.bid in (select bid from book_request where rid= $1)`;
 
-const checkFavourite=` SELECT * from favourites where uid1 = $1  and uid2=$2 `
+const checkFavourite=` SELECT * from favourites where uid1 = $1  and uid2= $2 `
 
 const getAClient=`SELECT * FROM client WHERE uid=$1 `
 // zeyad ayman

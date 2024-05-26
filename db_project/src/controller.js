@@ -252,7 +252,8 @@ const checkFavourite=(req,res)=>{
         if(error)
             throw error;
 
-        res.status(200).json(results.rows)
+        const favouriteExists = results.rows.length > 0; // Check if any rows were returned
+        res.status(200).json({ exists: favouriteExists });
 
     })
 
