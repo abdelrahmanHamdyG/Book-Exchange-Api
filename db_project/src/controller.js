@@ -236,8 +236,10 @@ const getAllBooksU=(req,res)=>{
 };
 
 const declineRequest=(req,res)=>{
-    
+
     const {rid}=parseInt(req.params.rid);
+    console.log(`rid is `,rid)
+    
     pool.query (queries.declineRequest,[rid],(error,result)=>{
         if(error) throw error
         res.status(200).send("done refused requst");
