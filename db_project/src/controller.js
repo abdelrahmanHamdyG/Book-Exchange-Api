@@ -237,7 +237,7 @@ const getAllBooksU=(req,res)=>{
 
 const declineRequest=(req,res)=>{
 
-    const {rid}=parseInt(req.params.rid);
+    const rid=parseInt(req.params.rid);
     console.log(`rid is `,rid)
     
     pool.query (queries.declineRequest,[rid],(error,result)=>{
