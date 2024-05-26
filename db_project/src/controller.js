@@ -39,9 +39,9 @@ const getARequest=(req,res)=>{
 
 const postMyRequest= (req , res) =>{
     
-    const {rid,uid1,uid2,myBooks,hisBooks,state,clicked,date}=req.body;
+    const {rid,uid1,uid2,myBooks,hisBooks,state,clicked,rdate}=req.body;
     console.log("I am in the request")
-    pool.query(queries.postMyRequest,[uid1,uid2,date],(error,results)=>{
+    pool.query(queries.postMyRequest,[uid1,uid2,rdate],(error,results)=>{
         if(error){
             console.log(error)
             res.status(409).send(error)

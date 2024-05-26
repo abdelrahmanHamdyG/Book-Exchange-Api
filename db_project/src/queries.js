@@ -2,20 +2,26 @@ const { getRequestOtherbook } = require("./controller");
 
 const getAllClients="SELECT * FROM client";
 const getMyRequest="Select * FROM request where uid1=$1 or uid2=$1";
-const postMyRequest=`INSERT INTO request (uid1, uid2, rstate, rdate, clicked) VALUES ($1, $2, 'pending', $3, false)         RETURNING rid;`
+const postMyRequest=`INSERT INTO request (uid1, uid2, rdate, clicked) VALUES ($1, $2, $3, false)         RETURNING rid;`
 const insertBookRequestQuery = `INSERT INTO book_request (rid,bid) VALUES ($1, $2)`;
 
+
+const deleteBook=`UPDATE active_books set bstate= 'deleted'  where active_books.bid=$1`; 
+const getMyBooks=`SELECT * FROM active_books WHERE uid = $1;` ;
+const addBook="INSERT INTO active_books (title, description, image_link, category, bstate, uid) VALUES ($1, $2, $3, $4, $5, $6)";
+
+const updateBook="UPDATE active_books SET title=$1, description=$2, image_link=$3, category=$4, bstate=$5 WHERE active_books.bid = $6"; 
 
 
 // sheeka
 const checkBeforeDelete="SELECT book FROM book_request book  WHERE book.uid = 1$ and book.bid = book_request.bid" ;
-const deleteBook=`UPDATE  book set bstate= 'deleted'  where book.bid=$1`; 
-const getMyBooks=`SELECT * FROM book WHERE book.uid=$1 and book.bstate!='deleted'`;
+
+
 
 //DELETE FROM book WHERE uid = $1 AND NOT EXISTS (SELECT $1 FROM book_request WHERE book_request.bid = book.bid);
-const addBook="INSERT INTO book (title, description, image_link, category, bstate, uid) VALUES ($1, $2, $3, $4, $5, $6)";
 
-const updateBook="UPDATE book SET title=$1, description=$2, image_link=$3, category=$4, bstate=$5 WHERE bid = $6"; 
+
+
 
 const addFav="INSERT INTO favourites (uid1, uid2) VALUES ($1, $2)";
 
