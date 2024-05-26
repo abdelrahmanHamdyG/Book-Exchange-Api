@@ -40,7 +40,7 @@ const getAClient=`SELECT * FROM client WHERE uid=$1 `
 const getBooks=`Select * from book where book.uid!=$1 and book.bstate !='deleted' and ( `;
 const getBooksDecision=`Select * from book where `;
 const getAllBooksU=`SELECT * FROM book WHERE uid != $1 and book.bstate!='deleted' `;
-const getBooksOfFav="SELECT * FROM favourites LEFT JOIN book on (favourites.uid2 = book.uid) WHERE uid1=$1 AND uid2=uid and book.bstate!='deleted' ";
+const getBooksOfFav="SELECT book.* FROM favourites LEFT JOIN book on (favourites.uid2 = book.uid) WHERE uid1=$1 AND uid2=uid and book.bstate!='deleted' ";
 const getBooksBySearch="SELECT * FROM book WHERE title LIKE $2 AND uid != $1 and book.bstate!='deleted' ";
 const makeThemClicked=`Update request set clicked=true where uid2=$1 `
 
@@ -87,5 +87,5 @@ module.exports={
     getAClient,
     checkFavourite,
     removeFavourite,
-        
+
 }
