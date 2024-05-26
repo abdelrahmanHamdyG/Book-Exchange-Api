@@ -245,8 +245,8 @@ const getBooksOfFav=(req,res)=>{
 };
 const checkFavourite=(req,res)=>{
 
-    const uid1=req.params.uid1
-    const uid2=req.params.uid2
+    const uid1=req.params.uid1;
+    const uid2=req.params.uid2;
     console.log("got the requst")
     pool.query(queries.checkFavourite,[uid1,uid2],(error,results)=>{
         if(error){
@@ -255,6 +255,7 @@ const checkFavourite=(req,res)=>{
             throw error;
         }
 
+        console.log("no error got ")
         const favouriteExists = results.rows.length > 0; // Check if any rows were returned
         res.status(200).json({ exists: favouriteExists });
 
