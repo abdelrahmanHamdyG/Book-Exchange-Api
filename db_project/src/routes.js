@@ -25,6 +25,7 @@ router.delete("/mybooks/:bid",controller.deleteBook);
 router.post("/mybooks/:uid",controller.addBook);
 router.put("/mybooks/:bid",controller.updateBook);
 router.post("/favourite/:uid1&:uid2",controller.addFav) 
+router.delete("/favourite/:uid1&:uid2",controller.removeFavourite) 
 router.get("/mybooks/:uid",controller.getMyBooks);
 
 

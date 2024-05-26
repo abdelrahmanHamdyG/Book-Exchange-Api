@@ -44,6 +44,8 @@ const getBooksOfFav="SELECT * FROM favourites LEFT JOIN book on (favourites.uid2
 const getBooksBySearch="SELECT * FROM book WHERE title LIKE $2 AND uid != $1 and book.bstate!='deleted' ";
 const makeThemClicked=`Update request set clicked=true where uid2=$1 `
 
+const removeFavourite=`Delete from favourites where uid1= $1 and uid2=$2 `
+
 //const mybookRequest=`select * from book_request where rid=$1 and bid in (select bid from book where uid=$2)`;
 const mybookRequest=`SELECT b.* 
 FROM book b
@@ -84,4 +86,6 @@ module.exports={
     othersideBookRequest,
     getAClient,
     checkFavourite,
+    removeFavourite,
+    
 }

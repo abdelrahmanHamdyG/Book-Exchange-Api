@@ -260,6 +260,18 @@ const checkFavourite=(req,res)=>{
     })
 }
 
+const removeFavourite=(req,res)=>{
+    const uid1 = req.params.uid1;
+    const uid2 = req.params.uid2 ;
+    
+    pool.query(queries.addFav, [uid1,uid2], (error,results)=>{
+        if(error) throw error
+        res.status(201).send("User Added to Favorites Successfully");
+    });
+    
+
+}
+
 const getBooksBySearch=(req,res)=>{
     const uid = req.params.uid;
     const Kword = req.params.Kword;
@@ -335,4 +347,5 @@ module.exports={
     getRequestOtherbook,    
     getAClient,
     checkFavourite,
+    removeFavourite,
 }
