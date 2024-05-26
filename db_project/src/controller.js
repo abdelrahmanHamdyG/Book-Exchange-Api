@@ -255,12 +255,9 @@ const checkFavourite=(req,res)=>{
             throw error;
         }
 
-        console.log("no error got ")
-        const favouriteExists = results.rows.length > 0; // Check if any rows were returned
-        res.status(200).json(favouriteExists);
         
+        res.status(200).json(results.rows);
     })
-
 }
 
 const getBooksBySearch=(req,res)=>{
