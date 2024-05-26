@@ -334,5 +334,5 @@ module.exports={
     getRequestMybook,
     getRequestOtherbook,    
     getAClient,
-    checkFavourite
+    checkFavourite,
 }

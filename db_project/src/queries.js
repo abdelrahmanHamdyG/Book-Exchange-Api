@@ -83,7 +83,5 @@ module.exports={
     mybookRequest,
     othersideBookRequest,
     getAClient,
-    checkFavourite
-    
-    
+    checkFavourite,
 }
