@@ -33,7 +33,7 @@ router.put("/decline/:rid",controller.acceptRequest);
 
 // zeyad
 
-router.get("checkFavourite/",controller.checkFavourite)
+router.get("/checkFavourite/",controller.checkFavourite)
 router.get("/books/all/:uid", controller.getAllBooksU);
 router.get("/favourite/:uid1", controller.getBooksOfFav);
 router.get("/search/:uid&:Kword", controller.getBooksBySearch);
