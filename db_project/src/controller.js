@@ -235,6 +235,15 @@ const getAllBooksU=(req,res)=>{
     });
 };
 
+const declineRequest=(req,res)=>{
+    
+    const {rid}=parseInt(req.params.rid);
+    pool.query (queries.declineRequest,[rid],(error,result)=>{
+        if(error) throw error
+        res.status(200).send("done refused requst");
+    });
+};
+
 const getBooksOfFav=(req,res)=>{
 
     const uid1 = req.params.uid1;
@@ -348,4 +357,5 @@ module.exports={
     getAClient,
     checkFavourite,
     removeFavourite,
+    declineRequest,
 }

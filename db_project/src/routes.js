@@ -42,6 +42,7 @@ router.get("/books/:uid&:cats",controller.getBooksByFilter)
 router.put("/clicked/:uid",controller.makeThemClicked);
 
 router.post("/addUser",controller.addUser);
+router.post("/declineRequest/:rid",controller.declineRequest)
 
 
 module.exports=router;

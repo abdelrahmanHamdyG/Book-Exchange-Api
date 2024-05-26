@@ -27,6 +27,8 @@ const getARequest=`Select * FROM request where rid=$1`
 
 // ahmed sayed
 
+const declineRequest=`update request set rstate='refused' where rid=$1`;
+
 const updateAcceptAfterAcceptRequest=
 `Update request set rstate = 'accepted' where rid =$1`; 
 const updateDeclinedAfterAcceptRequest=
@@ -87,5 +89,5 @@ module.exports={
     getAClient,
     checkFavourite,
     removeFavourite,
-
+    declineRequest,
 }
