@@ -87,5 +87,5 @@ module.exports={
     getAClient,
     checkFavourite,
     removeFavourite,
-    
+        
 }

@@ -264,7 +264,7 @@ const removeFavourite=(req,res)=>{
     const uid1 = req.params.uid1;
     const uid2 = req.params.uid2 ;
     
-    pool.query(queries.addFav, [uid1,uid2], (error,results)=>{
+    pool.query(queries.removeFavourite, [uid1,uid2], (error,results)=>{
         if(error) throw error
         res.status(201).send("User Added to Favorites Successfully");
     });
