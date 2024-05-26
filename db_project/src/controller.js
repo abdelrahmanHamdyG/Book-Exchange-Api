@@ -245,15 +245,17 @@ const getBooksOfFav=(req,res)=>{
 };
 const checkFavourite=(req,res)=>{
 
-    const {uid1,uid2}=req.body;
+    const uid1=req.params.uid1;
+    console.log(uid1)
+    const uid2=req.params.uid2;
     console.log(uid2)
-    
+    console.log("got the requst")
     pool.query(queries.checkFavourite,[uid1,uid2],(error,results)=>{
         if(error){
             console.log(error.message)
             throw error;
         }
-        
+
         res.status(200).json(results.rows);
     })
 }
