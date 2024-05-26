@@ -171,10 +171,10 @@ const updateBook=(req,res)=>{
 
 
 const addFav=(req,res)=>{
-    const uid = parseInt(req.params.uid);
-    const {uid2} = req.body ;
+    const uid1 = req.params.uid1;
+    const uid2 = req.params.uid2 ;
     
-    pool.query(queries.addFav, [uid,uid2], (error,results)=>{
+    pool.query(queries.addFav, [uid1,uid2], (error,results)=>{
         if(error) throw error
         res.status(201).send("User Added to Favorites Successfully");
     });
@@ -243,6 +243,20 @@ const getBooksOfFav=(req,res)=>{
         res.status(200).json(results.rows);
     });
 };
+const checkFavourite=(req,res)=>{
+
+    const uid1=req.params.uid1
+    const uid2=req.params.uid2
+
+    pool.query(queries.checkFavourite,[uid1,uid2],(error,results)=>{
+        if(error)
+            throw error;
+
+        res.status(200).json(results.rows)
+
+    })
+
+}
 
 const getBooksBySearch=(req,res)=>{
     const uid = req.params.uid;
@@ -317,5 +331,6 @@ module.exports={
     getBooksDecision,
     getRequestMybook,
     getRequestOtherbook,    
-    getAClient
+    getAClient,
+    checkFavourite
 }

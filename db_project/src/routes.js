@@ -24,7 +24,7 @@ router.get("/requestOtherBooks/:rid&:uid",controller.getRequestOtherbook)
 router.delete("/mybooks/:bid",controller.deleteBook);
 router.post("/mybooks/:uid",controller.addBook);
 router.put("/mybooks/:bid",controller.updateBook);
-router.post("/favourite/:uid",controller.addFav) 
+router.post("/favourite/:uid1&:uid2",controller.addFav) 
 router.get("/mybooks/:uid",controller.getMyBooks);
 
 
@@ -32,6 +32,8 @@ router.get("/mybooks/:uid",controller.getMyBooks);
 router.put("/decline/:rid",controller.acceptRequest);
 
 // zeyad
+
+router.get("check-favourite/:uid1&:uid2",controller.checkFavourite)
 router.get("/books/all/:uid", controller.getAllBooksU);
 router.get("/favourite/:uid1", controller.getBooksOfFav);
 router.get("/search/:uid&:Kword", controller.getBooksBySearch);
